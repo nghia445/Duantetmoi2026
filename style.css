@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY CHUẨN MOBILE */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a0000, #000);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+/* KHUNG ĐIỆN THOẠI */
+.phone {
+  width: 100%;
+  max-width: 390px;
+  height: 100vh; /* QUAN TRỌNG */
+  max-height: 820px;
+  border-radius: 60px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  border: 3px solid gold;
+  box-shadow:
+    0 0 30px gold,
+    0 40px 120px rgba(0, 0, 0, 0.9);
+  transform: translateZ(0);
+}
+
+/* CÁC MÀN HÌNH BÊN TRONG */
+.lock-screen,
+.pass-screen,
+.messenger,
+.celebration {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Trạng thái ban đầu */
+.pass-screen {
+  transform: translateY(100%);
+}
+
+.messenger {
+  transform: translateY(100%);
+}
+
+.celebration {
+  transform: translateY(100%);
+}
+
+/* Background glow */
+.bg-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, gold, transparent 70%);
+  filter: blur(60px);
+
+  animation: glowMove 8s infinite alternate ease-in-out;
+}
+
+@keyframes glowMove {
+  from {
+    transform: translate(-100px, -100px);
+  }
+  to {
+    transform: translate(100px, 100px);
+  }
+}
+
+/* Reflection */
+.screen-reflection {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  animation: reflect 8s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes reflect {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* STATUS */
+.status-bar {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 30px;
+  background: #111;
+  border-radius: 20px;
+  box-shadow: 0 0 15px gold inset;
+  transition: 0.5s;
+}
+
+/* LOCK */
+.lock-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #990000, #ffcc00);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.time {
+  font-size: 75px;
+  font-weight: bold;
+  text-shadow: 0 0 25px gold;
+}
+
+.date {
+  margin-top: 10px;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.swipe-text {
+  position: absolute;
+  bottom: 40px;
+  opacity: 0.8;
+}
+
+/* PASS */
+.pass-screen {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.key {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #222, #111);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Hover sáng lên */
+.key:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 20px gold,
+    0 0 40px orange;
+}
+
+/* Khi bấm */
+.key:active {
+  transform: scale(0.9);
+  background: linear-gradient(145deg, #444, #222);
+  box-shadow: 0 0 30px gold;
+}
+
+.dots {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.filled {
+  background: white;
+}
+
+/* MESSENGER */
+.messenger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f0f2f5;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background: linear-gradient(90deg, #0084ff, #00c6ff);
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  color: white;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: white;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bubble {
+  padding: 14px 18px;
+  border-radius: 25px;
+  margin: 8px 0;
+  max-width: 75%;
+  animation: pop 0.4s ease;
+}
+
+.left {
+  background: white;
+}
+.right {
+  background: linear-gradient(90deg, #0084ff, #00c6ff);
+  color: white;
+  align-self: flex-end;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* HEART */
+.heart-button {
+  text-align: center;
+  padding: 20px;
+  font-size: 45px;
+  cursor: pointer;
+  animation: heartGlow 1.5s infinite alternate;
+}
+
+@keyframes heartGlow {
+  from {
+    text-shadow: 0 0 10px red;
+  }
+  to {
+    text-shadow: 0 0 35px pink;
+  }
+}
+
+/* CELEBRATION */
+.celebration {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transform: translateY(100%);
+  transition: 0.6s ease;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* FIX KEYPAD GRID */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 20px;
+  justify-content: center;
+}
+
+/* SHAKE ANIMATION */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+/* PASS TITLE FIX */
+.pass-title {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+/* DOT FIX */
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.filled {
+  background: white;
+}
+
+.lock-notification {
+  width: 90%;
+  margin: 20px auto 0;
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  padding: 14px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.lock-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.noti-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.noti-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.noti-message {
+  opacity: 0.9;
+}
+
+.lock-screen,
+.pass-screen,
+.messenger,
+.celebration {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

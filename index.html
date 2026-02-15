@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>TẾT ROYAL EDITION 3.0</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <audio id="bgMusic" loop>
+      <source
+        src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8a3f5e0b6.mp3"
+      />
+    </audio>
+
+    <div class="bg-glow"></div>
+
+    <div class="phone">
+      <div class="screen-reflection"></div>
+
+      <div class="status-bar">
+        <div id="statusTime"></div>
+        <div>📶 📡 🔋100%</div>
+      </div>
+
+      <div class="dynamic-island" id="island"></div>
+
+      <!-- LOCK SCREEN -->
+      <div class="lock-screen" id="lockScreen">
+        <div class="time" id="clock"></div>
+        <div class="date" id="date"></div>
+        <div class="face-scan" id="faceScan">
+          <div class="scan-line"></div>
+        </div>
+        <div class="swipe-text">Vuốt lên để mở khóa</div>
+        <!-- LOCK NOTIFICATION -->
+        <div class="lock-notification" id="lockNotification">
+          <div class="noti-header">
+            <div class="noti-app">💬 Messenger</div>
+            <div class="noti-time" id="notiTime">Bây giờ</div>
+          </div>
+          <div class="noti-title">Nghia Tran 👑</div>
+          <div class="noti-message">Chúc mừng năm mới 2026 🎆</div>
+        </div>
+      </div>
+
+      <!-- PASSCODE -->
+      <div class="pass-screen" id="passScreen">
+        <div class="pass-title">Nhập mật khẩu</div>
+        <div class="dots" id="dots"></div>
+        <div class="keypad" id="keypad"></div>
+      </div>
+
+      <!-- CHAT -->
+      <div class="messenger" id="messenger">
+        <div class="chat-header">
+          <div class="avatar"></div>
+          <div>
+            Nghia Tran 👑
+            <div class="online">Đang hoạt động</div>
+          </div>
+        </div>
+        <div class="chat-box" id="chatBox"></div>
+        <div class="heart-button" onclick="launchCelebration()">❤️</div>
+      </div>
+
+      <!-- CELEBRATION -->
+      <div class="celebration" id="celebration">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <audio id="tetMusic" loop>
+      <source
+        src="nhac/Nhạc Tết - Không Có Bản Quyền Bài Hát & MP3 Tải miễn phí - Pixabay.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
